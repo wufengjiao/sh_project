@@ -1,0 +1,48 @@
+.material_apply #number{
+    text-align: center;border-style: none;width: 100%;
+}
+.material_apply #title{
+    font-family: inherit;font-size: small;line-height: inherit;width: 100%;
+}
+.material_apply .apply-form{
+    background-color: #999999;
+}
+.material_apply .apply-form1{
+    text-align: center !important;
+}
+.material_apply .apply-form1 > label{
+    font-size: medium;
+}
+.material_apply .apply-btn{
+    border-radius: 25px !important;
+}
+.table-container-content{
+    display: none;
+}
+.material_apply .table{
+    text-align: center !important;
+}
+.material_apply .table > thead >tr{
+    font-size: 14px;
+}
+.material_apply .table > thead > tr > td,.material_apply .table > tbody > tr > td,.material_apply .table > tfoot > tr > td{
+    border-bottom: 1px solid #999999 !important;
+    border-left: 1px solid #999999 !important;
+    border-right: 1px solid #999999 !important;
+}
+.material_apply #white-progress{
+    margin-left:20px;
+    background-color:white;
+    float:left;
+    width:150px;
+    padding: 0;
+    border: 1px solid navy;
+    display: none;
+}
+.material_apply #progress{
+    background-color: grey;
+    padding: 0;
+    /*width: 10px;*/
+    height: 18px
+}
+
