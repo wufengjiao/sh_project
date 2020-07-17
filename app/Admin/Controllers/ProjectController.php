@@ -24,7 +24,6 @@ class ProjectController extends Controller
      */
     public function index(Content $content)
     {
-
         return $content
             ->header(trans('项目预结算'))
             ->description(trans('首页'))
@@ -232,7 +231,6 @@ SCRIPT;
      */
     public function getprogress(Request $request){
         $content = $request->all();
-
         $result = array();
         //获取指定项目
         $project = Project::query()->select(['id','expected_materials','real_materials'])->find($content['id']);

@@ -1,5 +1,4 @@
 <?php
-
 namespace App\Admin\Controllers;
 
 use App\Http\Controllers\Controller;
@@ -56,7 +55,6 @@ class ApplyController extends Controller
             $tools->batch(function (Grid\Tools\BatchActions $actions) {
                 $actions->disableDelete();
             });
-
         });
 
         //处理过滤器
