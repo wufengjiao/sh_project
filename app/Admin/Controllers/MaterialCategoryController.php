@@ -55,7 +55,7 @@ class MaterialCategoryController extends Controller
         return $content->header(trans('项目成本控制'))
                         ->description(trans('新建材料类别'))
                         ->body($this->form());
-        
+
     }
 
     /**
@@ -64,7 +64,7 @@ class MaterialCategoryController extends Controller
 
     public function form(){
         $form = new Form(new MaterialCategory());
-            
+
         $pids = MaterialCategory::getAllCategory($flag=1);
 
         $form->text('category_name',trans('材料名称'))->rules('required');
@@ -72,7 +72,7 @@ class MaterialCategoryController extends Controller
         $form->tools(function (Form\Tools $tools){
             $tools->disableView();
         });
-        
+
         $form->saving(function (Form $form){
             //新增、修改时判断数据是否存在
             $id = $form->model()->id;
@@ -83,7 +83,7 @@ class MaterialCategoryController extends Controller
                                                 ->where('pid','=',$insert_data['pid'])
                                                 ->get(['id'])->toArray();
             if(count($if_have) != 0){
-                if((!empty($id) && $id != $if_have[0]['id']) || (empty($id) && count($if_have[0]) != 0)){                        
+                if((!empty($id) && $id != $if_have[0]['id']) || (empty($id) && count($if_have[0]) != 0)){
                     $flag = true;
                 }
             }

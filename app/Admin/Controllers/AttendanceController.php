@@ -1,11 +1,5 @@
 <?php
 
-<<<<<<< HEAD
-=======
-/*
- * 项目监管
- */
->>>>>>> 384eeb2af03eed840b3379c2d3fe77c25be4c0de
 namespace App\Admin\Controllers;
 
 use App\Http\Controllers\Controller;

@@ -145,11 +145,11 @@ class ProjectController extends Controller
             $form->multipleSelect('workflow_id[4]', trans('采购人员'))->options(admin_base_path('auth/users/purchase/findPerson'));
             $form->multipleSelect('workflow_id[5]', trans('财务人员'))->options(admin_base_path('auth/users/finance/findPerson'));
         });
-        
+
         $this->script = <<<SCRIPT
                 $(".expected_labor,.expected_others").blur(function () {
                     var id=$(this).attr("id");
-                    
+
                    //合同总价
                     var contract_price = document.getElementById("contract_price").value;
                     var perprofit  = document.getElementById("perprofit").value;
@@ -163,7 +163,7 @@ class ProjectController extends Controller
                     //输入成本价格
                     var expected_labor = isNaN(document.getElementById("expected_labor").value)?0:Number(document.getElementById("expected_labor").value);
                     var expected_others = isNaN(document.getElementById("expected_others").value)?0:Number(document.getElementById("expected_others").value);
-                    
+
                     var cur_sum = expected_labor + expected_others;
                     if(cur_sum > expected){
                          document.getElementById(id).setAttribute("style","color:red");
@@ -190,7 +190,7 @@ SCRIPT;
             $form->workflow_id = serialize($data['workflow_id']);
 
         });
-        
+
         return $form;
     }
 
@@ -220,7 +220,7 @@ SCRIPT;
         $project_data[0] = ['人工总费用',$data['expected_labor'],$data['real_labor']];
         $project_data[1] = ['材料总费用',$data['expected_materials'],$data['real_materials']];
         $project_data[2] = ['其他总费用',$data['expected_others'],$data['real_others']];
-        
+
         return view('project.allview')->with('header','项目预结算')->with("project_data",$project_data);
     }
 
@@ -234,7 +234,7 @@ SCRIPT;
         $result = array();
         //获取指定项目
         $project = Project::query()->select(['id','expected_materials','real_materials'])->find($content['id']);
-
+dd($project);
         //添加期望成本值、实际已使用值
         $result['expected'] = $project['expected_materials'];
         $result['real'] = $project['real_materials'];

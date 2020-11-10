@@ -21,11 +21,11 @@ class MaterialController extends Controller
     protected $states = [
         'off'  => ['value' => 0, 'text' => '关闭', 'color' => 'default'],
         'on' => ['value' => 1, 'text' => '打开', 'color' => 'primary'],
-    ]; 
+    ];
     protected $enable;
     public function __construct()
     {
-        $this->enable = [0=>trans('禁用'),1=>trans('启用')]; 
+        $this->enable = [0=>trans('禁用'),1=>trans('启用')];
     }
 
     /**
@@ -121,7 +121,7 @@ class MaterialController extends Controller
             $tools->disableView();
         });
         //项目内容
-        $form->select('category_id','材料类别')->options($data)->rules('required');;
+        $form->select('category_id','材料类别')->options($data)->rules('required');
         $form->text('merchant','商家名称')->rules('required');
         $form->distpicker(['province_code' => '省','city_code' => '市','district_code' => '区'], '商家省份')->autoselect(3);
         $form->text('address','商家详细地址')->rules('required');
@@ -145,9 +145,9 @@ class MaterialController extends Controller
                                             ->Where('unit',"=",$insert_data['unit'])
                                             ->Where('market_price',"=",$insert_data['market_price'])
                                             ->get(['id'])->toArray();
-            
+
             if(count($if_have) != 0){
-                if((!empty($id) && $id != $if_have[0]['id']) || (empty($id) && count($if_have[0]) != 0)){                        
+                if((!empty($id) && $id != $if_have[0]['id']) || (empty($id) && count($if_have[0]) != 0)){
                     $flag = true;
                 }
             }
@@ -193,7 +193,7 @@ class MaterialController extends Controller
             ->orderby('market_price','asc')
             ->first(['id','merchant','market_price','grade'])->toArray();
         }
-        
+
         return $lowest_material;
     }
 }
